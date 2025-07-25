@@ -1,0 +1,81 @@
+{
+  "name": "Email  to Monday.com",
+  "nodes": [
+    {
+      "parameters": {
+        "downloadAttachments": true,
+        "options": {
+          "customEmailConfig": "[\"UNSEEN\"]"
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a3602dec-d17e-468d-b65a-6ee4852bab6c",
+      "name": "Email Trigger (IMAP)",
+      "notesInFlow": false,
+      "credentials": {
+        "imap": {
+          "id": "RI3wDLUF4UK2PIY7",
+          "name": "IMAP account"
+        }
+      },
+      "notes": "opcje:\n\n[\"UNSEEN\"]\n[\"ALL\"]"
+    },
+    {
+      "parameters": {
+        "resource": "boardItem",
+        "boardId": "2035092071",
+        "groupId": "emailed_items__1",
+        "name": "={{ $json.metadata['delivery-date'] }}\n",
+        "additionalFields": {
+          "columnValues": "={{ JSON.stringify({\n  \"text_mkncsyvg\": $json.metadata && $json.metadata['return-path'] ? String($json.metadata['return-path']).replace(/<|>/g, '') : '',\n  \"long_text_mknaknf9\": $json.subject ? String($json.subject) : '',\n  \"long_text_mksgwjk\": $json.textPlain ? String($json.textPlain) : '',\n  \"date_mknbt3hv\": $json.metadata && $json.metadata['delivery-date'] && !isNaN(new Date($json.metadata['delivery-date'])) ? new Date($json.metadata['delivery-date']).toISOString().split('T')[0] : ''\n}) }}"
+        }
+      },
+      "type": "n8n-nodes-base.mondayCom",
+      "typeVersion": 1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "fd3a1404-2ecb-4963-b332-68e7fc12583c",
+      "name": "Create an item in a board's group",
+      "notesInFlow": false,
+      "credentials": {
+        "mondayComApi": {
+          "id": "UBhNpWLvoMRIC1A2",
+          "name": "Monday.com account"
+        }
+      },
+      "notes": "text_mkncsyvg - nadawca\nlong_text_mknaknf9 - temat\nlong_text_mksgwjk - treść "
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Email Trigger (IMAP)": {
+      "main": [
+        [
+          {
+            "node": "Create an item in a board's group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "74231562-3d27-4afa-88b3-7e27405c1f8e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2f9437d872b928b9f95f49ca1971acfe5b3331adb2c174e37cbb82736d905624"
+  },
+  "id": "tEzZGQbtwyQkfqtM",
+  "tags": []
+}
