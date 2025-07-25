@@ -32,7 +32,7 @@
         "groupId": "[YOUR_GROUP_ID]",
         "name": "={{ $json.metadata['delivery-date'] }}\n",
         "additionalFields": {
-          "columnValues": "={{ JSON.stringify({\n  \"text_mkncsyvg\": $json.metadata && $json.metadata['return-path'] ? String($json.metadata['return-path']).replace(/<|>/g, '') : '',\n  \"long_text_mknaknf9\": $json.subject ? String($json.subject) : '',\n  \"long_text_mksgwjk\": $json.textPlain ? String($json.textPlain) : '',\n  \"date_mknbt3hv\": $json.metadata && $json.metadata['delivery-date'] && !isNaN(new Date($json.metadata['delivery-date'])) ? new Date($json.metadata['delivery-date']).toISOString().split('T')[0] : ''\n}) }}"
+          "columnValues": "={{ JSON.stringify({\n  \"text_mk\": $json.metadata && $json.metadata['return-path'] ? String($json.metadata['return-path']).replace(/<|>/g, '') : '',\n  \"long_text_mknaknf9\": $json.subject ? String($json.subject) : '',\n  \"long_text_mks\": $json.textPlain ? String($json.textPlain) : '',\n  \"date_m\": $json.metadata && $json.metadata['delivery-date'] && !isNaN(new Date($json.metadata['delivery-date'])) ? new Date($json.metadata['delivery-date']).toISOString().split('T')[0] : ''\n}) }}"
         }
       },
       "type": "n8n-nodes-base.mondayCom",
