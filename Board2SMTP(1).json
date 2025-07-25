@@ -6,38 +6,32 @@
       "name": "Manual Trigger",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
-      "position": [
-        0,
-        0
-      ],
-      "id": "5d479a9c-2dbe-4226-8326-1ab13b7f8891"
+      "position": [0, 0],
+      "id": "[REDACTED]"
     },
     {
       "parameters": {
         "resource": "boardItem",
         "operation": "getAll",
-        "boardId": "2035092071",
-        "groupId": "emailed_items__1",
+        "boardId": "[YOUR_BOARD_ID]",
+        "groupId": "[YOUR_GROUP_ID]",
         "limit": 1
       },
       "name": "Fetch Board Item",
       "type": "n8n-nodes-base.mondayCom",
       "typeVersion": 1,
-      "position": [
-        208,
-        0
-      ],
-      "id": "17c84ecf-9712-4cd7-b00f-166d3c9f7134",
+      "position": [208, 0],
+      "id": "[REDACTED]",
       "credentials": {
         "mondayComApi": {
-          "id": "UBhNpWLvoMRIC1A2",
+          "id": "[REDACTED]",
           "name": "Monday.com account"
         }
       }
     },
     {
       "parameters": {
-        "fromEmail": "n@hudzik.info",
+        "fromEmail": "[YOUR_FROM_EMAIL]",
         "toEmail": "={{ $json.column_values[2].text }}",
         "subject": "={{ $json.column_values[3].column.title }}",
         "text": "=",
@@ -47,14 +41,11 @@
       "name": "Send Email",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 1,
-      "position": [
-        400,
-        0
-      ],
-      "id": "37c24710-7fee-40c0-891a-a131d84cc203",
+      "position": [400, 0],
+      "id": "[REDACTED]",
       "credentials": {
         "smtp": {
-          "id": "NtUv1TZTPIdMT1xA",
+          "id": "[REDACTED]",
           "name": "SMTP account"
         }
       }
@@ -63,37 +54,21 @@
   "pinData": {},
   "connections": {
     "Manual Trigger": {
-      "main": [
-        [
-          {
-            "node": "Fetch Board Item",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{ "node": "Fetch Board Item", "type": "main", "index": 0 }]]
     },
     "Fetch Board Item": {
-      "main": [
-        [
-          {
-            "node": "Send Email",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{ "node": "Send Email", "type": "main", "index": 0 }]]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "1171ae1b-9b8a-4c3f-8782-afee4f243a3f",
+  "versionId": "[REDACTED]",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "2f9437d872b928b9f95f49ca1971acfe5b3331adb2c174e37cbb82736d905624"
+    "instanceId": "[REDACTED]"
   },
-  "id": "Eucf98orF0D7UiFJ",
+  "id": "[REDACTED]",
   "tags": []
 }
